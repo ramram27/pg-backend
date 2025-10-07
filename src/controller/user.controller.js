@@ -21,7 +21,21 @@ const userCreateController = async (req, res) => {
     }
 }
 
+const loginController = async (req, res) => {
+    try {
+        const { email, password } = req.body;
+        if (!email || !password) {
+            res.status(400).json({ message: "email and password are required" })
+        }
+        const user = await userService.loginUser(email, password)
+        res.status(200).json(user)
+    } catch (err) {
+        console.error(err)
+        res.status(500).json(err)
+    }
+}
 
 module.exports = {
     userCreateController,
+    loginController
 }

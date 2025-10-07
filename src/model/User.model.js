@@ -21,6 +21,15 @@ const User = {
         return res.rows[0]
     },
 
+    async findByEmail(email) {
+        const res = await pool.query("SELECT * FROM USERS WHERE email=$1", [email])
+        return res.rows[0]
+    },
+
+    async findById(id) {
+        const res = await pool.query("SELECT * FROM USERS WHERE id=$1")
+        return res.rows[0]
+    }
 
 }
 module.exports = User;
