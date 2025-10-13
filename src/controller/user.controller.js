@@ -8,13 +8,7 @@
 //             return res.status(400).json({ message: 'all field are required' })
 //         }
 //         const user = await userService.userCreate(name, email, password);
-//         res.status(201).json({
-//             message: 'user created', data: {
-//                 id: user.id,
-//                 name: user.name,
-//                 email: user.email
-//             }
-//         })
+//         res.status(201).json(user)
 //     } catch (err) {
 //         res.status(500).json({ message: 'Internal server error', error: err })
 //     }
